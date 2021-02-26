@@ -1048,12 +1048,12 @@ class BaseMixin:
             os.system(
                 f'cd {adb_dir} && adb -s {self.address} shell "cd /storage/emulated/0/bilibili_time && rm -rf * && '
                 f'exit"')
-            os.system(
-                f'cd {adb_dir} && adb -s {self.address} shell "cd /data/data/com.bilibili.priconne/files/ && rm -rf '
-                f'data_* && exit"')
-            os.system(
-                f'cd {adb_dir} && adb -s {self.address} shell "cd data/data/com.bilibili.priconne/files/ && rm -rf '
-                f'time_* && exit"')
+            # os.system(
+            #     f'cd {adb_dir} && adb -s {self.address} shell "cd /data/data/com.bilibili.priconne/files/ && rm -rf '
+            #     f'data_* && exit"')
+            # os.system(
+            #     f'cd {adb_dir} && adb -s {self.address} shell "cd data/data/com.bilibili.priconne/files/ && rm -rf '
+            #     f'time_* && exit"')
             os.system(f'cd {adb_dir} && adb -s {self.address} shell "find. - name "time_*" | xargs rm - rf && exit"')
             os.system(f'cd {adb_dir} && adb -s {self.address} shell "find. - name "data_*" | xargs rm - rf && exit"')
             # print("》》》匿名完毕《《《")
