@@ -15,8 +15,6 @@ class JJCMixin(FightBaseMixin):
         self.lock_home()
         self.click_btn(MAIN_BTN["maoxian"], until_appear=MAIN_BTN["zhuxian"])
         self.lock_img(JJC_BTN["list"], elseclick=[MAIN_BTN["zdjjc"], (1, 290)], elsedelay=2)
-        self.click_btn(JJC_BTN["shouqu"], until_appear=JJC_BTN["shouqu_ok"],
-                       elsedelay=4, retry=2, side_check=self.right_kkr)
         for _ in range(5):
             self.click(24, 84)
 
@@ -38,6 +36,8 @@ class JJCMixin(FightBaseMixin):
         self.set_fight_speed(2, 2)
         self.lock_img(JJC_BTN["xyb"], timeout=180, alldelay=1)
         self.click_btn(PCRelement(803, 496), until_disappear=JJC_BTN["xyb"])
+        self.click_btn(JJC_BTN["shouqu"], until_appear=JJC_BTN["shouqu_ok"],
+                       elsedelay=4, retry=2, side_check=self.right_kkr)
         self.lock_home()
         # 做pjjc任务
 
@@ -45,8 +45,6 @@ class JJCMixin(FightBaseMixin):
         self.lock_home()
         self.click_btn(MAIN_BTN["maoxian"], until_appear=MAIN_BTN["zhuxian"])
         self.lock_img(JJC_BTN["list"], elseclick=[MAIN_BTN["gzjjc"], (1, 290)], elsedelay=2)
-        self.click_btn(JJC_BTN["shouqu"], until_appear=JJC_BTN["shouqu_ok"],
-                       elsedelay=4, retry=2, side_check=self.right_kkr)
         for _ in range(5):
             self.click(24, 84)
 
@@ -68,4 +66,6 @@ class JJCMixin(FightBaseMixin):
         self.set_fight_speed(2, 2)
         self.lock_img(JJC_BTN["xyb"], elseclick=[(843, 452)], timeout=180 * 3, alldelay=1)
         self.click_btn(PCRelement(803, 506), until_disappear=JJC_BTN["xyb"])
+        self.click_btn(JJC_BTN["shouqu"], until_appear=JJC_BTN["shouqu_ok"],
+                       elsedelay=4, retry=2, side_check=self.right_kkr)
         self.lock_home()
