@@ -32,3 +32,4 @@ config.ini
 
 # 自定义脚本
 /customtask
+/bat

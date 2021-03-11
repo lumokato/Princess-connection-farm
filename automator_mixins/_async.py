@@ -285,9 +285,12 @@ class AsyncMixin(ToolsMixin):
     def _fix_reboot(self, back_home):
         # 重启逻辑：重启应用，重启异步线程
         self.stop_th()
-        self.d.session("com.bilibili.priconne")
-        time.sleep(8)
-        self.d.app_wait("com.bilibili.priconne")
+        # self.d.session("com.bilibili.priconne")
+        # time.sleep(8)
+        # self.d.app_wait("com.bilibili.priconne")
+        self.start_th()
+        self.init_fastscreen()
+        self.start_async()
         if back_home:
             self.start_th()
             self.init_fastscreen()

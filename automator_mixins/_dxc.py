@@ -321,24 +321,24 @@ class DXCMixin(DXCBaseMixin, ToolsMixin):
         self.lock_no_img('img/dixiacheng.jpg', elseclick=[(900, 138)], elsedelay=0.5, alldelay=5,
                          at=(837, 92, 915, 140))
         # 防止一进去就是塔币教程
-        self.lock_img('img/chetui.jpg', elseclick=[(1, 1)], side_check=self.dxc_kkr, retry=3, at=(738, 420, 872, 442))
+        self.lock_img('img/chetui.jpg', elseclick=[(1, 1)], side_check=self.dxc_kkr, retry=3, at=(89, 180, 292, 311))
         # 防止教程
-        self.lock_img('img/chetui.jpg', elseclick=[(1, 1)], side_check=self.juqing_kkr, at=(738, 420, 872, 442),
+        self.lock_img('img/chetui.jpg', elseclick=[(1, 1)], side_check=self.juqing_kkr, at=(89, 180, 292, 311),
                       retry=3)
 
         # 撤退 如果 已经进入
-        while True:
-            screen = self.getscreen()
-            if UIMatcher.img_where(screen, 'img/yunhai.bmp'):
-                break
-            if UIMatcher.img_where(screen, 'img/chetui.jpg', at=(738, 420, 872, 442)):
-                self.lock_img('img/ok.bmp', elseclick=[(810, 433)], elsedelay=1, ifclick=[(592, 370)], ifbefore=0.5,
-                              at=(495, 353, 687, 388))
-                continue
-            self.click(1, 100)
-            time.sleep(0.3)
-
-        ok = self.lock_img('img/ok.bmp', elseclick=[(131, 159)], elsedelay=2, ifclick=[(596, 371)], ifbefore=0.5,
+        # while True:
+        #     screen = self.getscreen()
+        #     if UIMatcher.img_where(screen, 'img/yunhai.bmp'):
+        #         break
+        #     if UIMatcher.img_where(screen, 'img/chetui.jpg', at=(738, 420, 872, 442)):
+        #         self.lock_img('img/ok.bmp', elseclick=[(810, 433)], elsedelay=1, ifclick=[(592, 370)], ifbefore=0.5,
+        #                       at=(495, 353, 687, 388))
+        #         continue
+        #     self.click(1, 100)
+        #     time.sleep(0.3)
+        #改为刷沧海
+        ok = self.lock_img('img/ok.bmp', elseclick=[(820, 159)], elsedelay=2, ifclick=[(596, 371)], ifbefore=0.5,
                            ifdelay=0, retry=3)
         if not ok:
             pcr_log(self.account).write_log(level='error', message="%s未能成功进入云海的山脉，跳过刷地下城" % self.account)
@@ -406,8 +406,8 @@ class DXCMixin(DXCBaseMixin, ToolsMixin):
 
             self.click(1, 1)  # 取消显示结算动画
             self.lock_img('img/chetui.jpg', elseclick=[(1, 1)], at=(738, 420, 872, 442))
-            self.lock_img('img/ok.bmp', elseclick=[(809, 433)], elsedelay=1, at=(495, 353, 687, 388))
-            self.lock_no_img('img/ok.bmp', elseclick=[(592, 373)], elsedelay=0.5, at=(495, 353, 687, 388))
+            # self.lock_img('img/ok.bmp', elseclick=[(809, 433)], elsedelay=1, at=(495, 353, 687, 388))
+            # self.lock_no_img('img/ok.bmp', elseclick=[(592, 373)], elsedelay=0.5, at=(495, 353, 687, 388))
             break
 
         self.lock_img('img/liwu.bmp', elseclick=[(131, 533)], at=(891, 413, 930, 452))
@@ -588,7 +588,7 @@ class DXCMixin(DXCBaseMixin, ToolsMixin):
         if stop_criteria == 0:
             min_live = 5
         else:
-            min_live = 1
+            min_live = 3
         while cur_layer <= max_layer - 1:
             # 刷小怪
             if mode == 3 and cur_layer >= 2:
