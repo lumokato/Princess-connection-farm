@@ -53,86 +53,45 @@ class LoginMixin(BaseMixin):
     #     # 如果你想知道，建议在config中把disable_timeout_raise给开启，
     #     # 然后在程序运行时按Ctrl+C，如果你运气好，你会看到你程序卡在哪里。
     #     # 我放弃了。  新增自动点击“下载”，自动下载新增数据功能， 2020-11-23 By TheAutumnOfRice
-
-<<<<<<< HEAD
-    #     # 结构梳理下为：auth -> login_auth(是否需要实名认证<->login<->do_login[验证码处理]) -> init_home(lock_home)
-    #     for retry in range(30):
-    #         if self.d(resourceId="com.bilibili.priconne:id/bsgamesdk_id_tourist_switch").exists():
-    #             self.d(resourceId="com.bilibili.priconne:id/bsgamesdk_id_tourist_switch").click()
-    #             time.sleep(2)
-    #             continue
-    #         if not self.d(resourceId="com.bilibili.priconne:id/bsgamesdk_edit_username_login").exists():
-    #             time.sleep(2)
-    #         else:
-    #             break
-    #     else:
-    #         raise Exception("进入登陆页面失败！")
-    #     self.d(resourceId="com.bilibili.priconne:id/bsgamesdk_edit_username_login").click()
-    #     self.d.clear_text()
-    #     self.d.send_keys(str(ac))
-    #     self.d(resourceId="com.bilibili.priconne:id/bsgamesdk_edit_password_login").click()
-    #     self.d.clear_text()
-    #     self.d.send_keys(str(pwd))
-    #     self.d(resourceId="com.bilibili.priconne:id/bsgamesdk_buttonLogin").click()
-    #     toast_message = self.d.toast.get_message()
-    #     while True:
-    #         # 快速响应
-    #         # 很容易在这里卡住
-    #         time.sleep(1)
-    #         sc = self.getscreen()
-    #         if self.is_exists(MAIN_BTN["xiazai"], screen=sc):
-    #             self.click(MAIN_BTN["xiazai"])
-    #         if self.d(text="请滑动阅读协议内容").exists() or self.d(description="请滑动阅读协议内容").exists():
-    #             break
-    #         elif self.is_exists(MAIN_BTN["liwu"], screen=sc):
-    #             break
-    #         elif self.d(text="Geetest").exists() or self.d(description="Geetest").exists():
-    #             break
-    #         elif toast_message == "密码错误":
-    #             raise Exception("密码错误！")
-    #         elif not self.d(resourceId="com.bilibili.priconne:id/bsgamesdk_buttonLogin").exists():
-    #             break
-=======
-        # 结构梳理下为：auth -> login_auth(是否需要实名认证<->login<->do_login[验证码处理]) -> init_home(lock_home)
-        for retry in range(30):
-            self._move_check()
-            self.click(945, 13)  # 防止卡住
-            if self.d(resourceId="com.bilibili.priconne:id/bsgamesdk_id_tourist_switch").exists():
-                self.d(resourceId="com.bilibili.priconne:id/bsgamesdk_id_tourist_switch").click()
-                time.sleep(2)
-                continue
-            if not self.d(resourceId="com.bilibili.priconne:id/bsgamesdk_edit_username_login").exists():
-                time.sleep(2)
-            else:
-                break
-        else:
-            raise Exception("进入登陆页面失败！")
-        self.d(resourceId="com.bilibili.priconne:id/bsgamesdk_edit_username_login").click()
-        self.d.clear_text()
-        self.d.send_keys(str(ac))
-        self.d(resourceId="com.bilibili.priconne:id/bsgamesdk_edit_password_login").click()
-        self.d.clear_text()
-        self.d.send_keys(str(pwd))
-        self.d(resourceId="com.bilibili.priconne:id/bsgamesdk_buttonLogin").click()
-        toast_message = self.d.toast.get_message()
-        while True:
-            # 快速响应
-            # 很容易在这里卡住
-            time.sleep(1)
-            sc = self.getscreen()
-            if self.is_exists(MAIN_BTN["xiazai"], screen=sc):
-                self.click(MAIN_BTN["xiazai"])
-            if self.d(text="请滑动阅读协议内容").exists() or self.d(description="请滑动阅读协议内容").exists():
-                break
-            elif self.is_exists(MAIN_BTN["liwu"], screen=sc):
-                break
-            elif self.d(text="Geetest").exists() or self.d(description="Geetest").exists():
-                break
-            elif toast_message is "密码错误":
-                raise Exception("密码错误！")
-            elif not self.d(resourceId="com.bilibili.priconne:id/bsgamesdk_buttonLogin").exists():
-                break
->>>>>>> 1d8afe7ba5a6431d676fb25508d0544f6435b0e5
+    # 结构梳理下为：auth -> login_auth(是否需要实名认证<->login<->do_login[验证码处理]) -> init_home(lock_home)
+        # for retry in range(30):
+        #     self._move_check()
+        #     self.click(945, 13)  # 防止卡住
+        #     if self.d(resourceId="com.bilibili.priconne:id/bsgamesdk_id_tourist_switch").exists():
+        #         self.d(resourceId="com.bilibili.priconne:id/bsgamesdk_id_tourist_switch").click()
+        #         time.sleep(2)
+        #         continue
+        #     if not self.d(resourceId="com.bilibili.priconne:id/bsgamesdk_edit_username_login").exists():
+        #         time.sleep(2)
+        #     else:
+        #         break
+        # else:
+        #     raise Exception("进入登陆页面失败！")
+        # self.d(resourceId="com.bilibili.priconne:id/bsgamesdk_edit_username_login").click()
+        # self.d.clear_text()
+        # self.d.send_keys(str(ac))
+        # self.d(resourceId="com.bilibili.priconne:id/bsgamesdk_edit_password_login").click()
+        # self.d.clear_text()
+        # self.d.send_keys(str(pwd))
+        # self.d(resourceId="com.bilibili.priconne:id/bsgamesdk_buttonLogin").click()
+        # toast_message = self.d.toast.get_message()
+        # while True:
+        #     # 快速响应
+        #     # 很容易在这里卡住
+        #     time.sleep(1)
+        #     sc = self.getscreen()
+        #     if self.is_exists(MAIN_BTN["xiazai"], screen=sc):
+        #         self.click(MAIN_BTN["xiazai"])
+        #     if self.d(text="请滑动阅读协议内容").exists() or self.d(description="请滑动阅读协议内容").exists():
+        #         break
+        #     elif self.is_exists(MAIN_BTN["liwu"], screen=sc):
+        #         break
+        #     elif self.d(text="Geetest").exists() or self.d(description="Geetest").exists():
+        #         break
+        #     elif toast_message is "密码错误":
+        #         raise Exception("密码错误！")
+        #     elif not self.d(resourceId="com.bilibili.priconne:id/bsgamesdk_buttonLogin").exists():
+        #         break
 
     #     def SkipAuth():
     #         for _ in range(2):
