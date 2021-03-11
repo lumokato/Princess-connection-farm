@@ -106,7 +106,7 @@ class ShuatuMixin(ShuatuBaseMixin):
         for cur in range(cur, len(L)):
             var["curHH"] = cur
             mv.save()
-            A, B, Times = L[cur]
+            A, B, Times = L[-1-cur]
             if A not in HARD_COORD:
                 pcr_log(self.account).write_log("error", f"坐标库中没有图号H{A}-{B}的信息！跳过此图。")
                 continue
